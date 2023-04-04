@@ -47,6 +47,8 @@
   border-radius: 8px;
   background-color: crimson;
   border: none;
+  cursor: pointer;
+  margin-left: 32%;
 }
 .label{
   color: darksalmon;
@@ -55,18 +57,12 @@
 table, th, td {
   border: 1px solid;
 }
-.formStyle{
-  display: grid;
-    grid-template-columns: 200px 5fr;
-    grid-gap: 16px;
-    margin-left: 43%;
-}
 label {
-  grid-column: 1 / 2;
+  display: inline-block;
+  width: 300px;
+  text-align: right;
 }
-button {
-    grid-column: 2 / 3;
-}.listButton{
+.listButton{
   background:aquamarine;
   border: none;
   border-radius: 8px;
@@ -75,5 +71,7 @@ button {
   margin-left: 80%;
   margin-top: 20px;
 
+}.formStyle{
+  margin-right:300px;
 }
 

@@ -9,7 +9,7 @@ const getUserdata = (successCB) => {
 const addDetails = (data, successCB, errorCB) => {
   return axios.post("/users", data).then(
     (res) => {
-      successCB(res.data);
+      successCB(res);
       return res;
     },
     (error) => {
