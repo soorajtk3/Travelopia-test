@@ -17,7 +17,6 @@ function Form() {
   };
   const submitForm = (event) => {
     event.preventDefault();
-    // addDetails(dataInput);
     addDetails(
       dataInput,
       (resp) => {
@@ -43,73 +42,79 @@ function Form() {
       </div>
       <div className="formStyle">
         <form onSubmit={submitForm}>
-          <label htmlFor="name" className="label">
-            Name :
-          </label>
+          <div>
+            <label htmlFor="name" className="label">
+              Name :
+            </label>
 
-          <input
-            className="inputfield"
-            name="name"
-            type="text"
-            value={nameValue}
-            onChange={(e) => setNamevalue(e.target.value)}
-            autoComplete="off"
-          />
-          {/* <br /> */}
-          <label htmlFor="email" className="label">
-            email :
-          </label>
+            <input
+              className="inputfield"
+              name="name"
+              type="text"
+              value={nameValue}
+              onChange={(e) => setNamevalue(e.target.value)}
+              autoComplete="off"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="label">
+              email :
+            </label>
 
-          <input
-            className="inputfield"
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="off"
-          />
-          {/* <br /> */}
-          <label className="label" htmlFor="destination">
-            Where do you want to go ? :
-          </label>
-          <select
-            onChange={(e) => setSelectDest(e.target.value)}
-            name="destination"
-            id="country"
-            className="inputfield"
-          >
-            <option value="India">India</option>
-            <option value="Africa">Africa</option>
-            <option value="Europe">Europe</option>
-          </select>
-          <br />
-          <label htmlFor="travellers" className="label">
-            No.of travellers :
-          </label>
+            <input
+              className="inputfield"
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="off"
+            />
+          </div>
+          <div>
+            <label className="label" htmlFor="destination">
+              Where do you want to go ? :
+            </label>
+            <select
+              onChange={(e) => setSelectDest(e.target.value)}
+              name="destination"
+              id="destination"
+              className="inputfield"
+            >
+              <option value="India">India</option>
+              <option value="Africa">Africa</option>
+              <option value="Europe">Europe</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="travellers" className="label">
+              No.of travellers :
+            </label>
 
-          <input
-            className="inputfield"
-            name="travellers"
-            type="number"
-            min="1"
-            max="100"
-            value={travellers}
-            onChange={(e) => setTravellers(e.target.value)}
-          />
-          <label htmlFor="budget" className="label">
-            Budget :
-          </label>
+            <input
+              className="inputfield"
+              name="travellers"
+              type="number"
+              min="1"
+              max="100"
+              value={travellers}
+              onChange={(e) => setTravellers(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="budget" className="label">
+              Budget :
+            </label>
 
-          <input
-            className="inputfield"
-            name="budget"
-            type="text"
-            prefix={"$"}
-            value={budget}
-            onChange={(e) => setBudget(e.target.value)}
-            autoComplete="off"
-          />
-          {/* <br /> */}
+            <input
+              className="inputfield"
+              name="budget"
+              type="text"
+              prefix={"$"}
+              value={budget}
+              onChange={(e) => setBudget(e.target.value)}
+              autoComplete="off"
+            />
+          </div>
 
           <button className="button" type="submit">
             Submit
