@@ -1,31 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { getUserdata } from "../api/user";
+import { NavLink } from "react-router-dom";
 
 function List() {
   const [userData, setUserdata] = useState([]);
   useEffect(() => {
     getUserdata((data) => setUserdata(data));
   }, []);
-  console.log(userData);
   return (
     <div
-      style={{ backgroundColor: "#E1F8DC", width: "100vw", height: "100vh" }}
+      style={{
+        backgroundColor: "#cfead9",
+        width: "100vw",
+      }}
     >
       <div>
-        <h3>User List</h3>
+        <h3 style={{ paddingTop: "10px" }}>User List</h3>
       </div>
-      <div style={{ marginLeft: "30%" }}>
-        <table>
-          <tr style={{ marginRight: "30px" }}>
-            <th>No.</th>
-            <th style={{ marginRight: "-5px" }}>Name</th>
-            <th>Email</th>
-            <th>Destination</th>
-            <th>Travellers</th>
-            <th>Budget</th>
-          </tr>
+      <div>
+        <button className="listButton">
+          <NavLink to="/">Back to Home</NavLink>
+        </button>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <table className="table" style={{}}>
+          <thead style={{ color: "#11114e" }}>
+            <tr style={{ top: 0 }}>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Destination</th>
+              <th>Travellers</th>
+              <th>Budget</th>
+            </tr>
+          </thead>
 
-          <tbody>
+          <tbody className="tableBody">
             {userData?.getUser?.map((user) => (
               <tr key={user.id}>
                 <td>{user.id}</td>
