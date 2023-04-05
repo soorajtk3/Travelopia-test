@@ -52,3 +52,7 @@ postgresql://USER:PASSWORD@HOST:PORT/DATABASE?KEY1=VALUE&KEY2=VALUE&KEY3=VALUE
 ### 6. Run the Server (port:3000)
 
 `npm run start`
+
+### 7. To run the test
+
+`npm test`
