@@ -2,12 +2,15 @@ import React from "react";
 import { useState } from "react";
 import { addDetails } from "../api/user";
 import Swal from "sweetalert2";
+import { NavLink } from "react-router-dom";
+
 function Form() {
   const [nameValue, setNamevalue] = useState("");
   const [email, setEmail] = useState("");
   const [selectDest, setSelectDest] = useState("India");
   const [budget, setBudget] = useState("");
   const [travellers, setTravellers] = useState("");
+
   const dataInput = {
     name: nameValue,
     email: email,
@@ -37,6 +40,11 @@ function Form() {
   };
   return (
     <div>
+      <div>
+        <button className="listButton">
+          <NavLink to="/list">View all users</NavLink>
+        </button>
+      </div>
       <div>
         <h3>Fill the form</h3>
       </div>
@@ -106,7 +114,7 @@ function Form() {
             </label>
 
             <input
-              className="inputfield"
+              className="inputfield placeholder"
               name="budget"
               type="text"
               prefix={"$"}
@@ -114,6 +122,7 @@ function Form() {
               onChange={(e) => setBudget(e.target.value)}
               autoComplete="off"
             />
+            <div className="prefix">$</div>
           </div>
 
           <button className="button" type="submit">

@@ -40,6 +40,7 @@
   width: 150px;
   height: 24px;
   margin-bottom: 18px;
+ 
 }
 .button{
   width: 140px;
@@ -48,7 +49,9 @@
   background-color: crimson;
   border: none;
   cursor: pointer;
-  margin-left: 32%;
+  margin-left: 5%;
+  margin-top: 20px;
+  position: fixed;
 }
 .label{
   color: darksalmon;
@@ -73,5 +76,13 @@ label {
 
 }.formStyle{
   margin-right:300px;
+}.prefix{
+  margin-top: -42px;
+  margin-left: 159px;
 }
-
+.placeholder{
+  padding-left: 13px;
+  width: 137px;
+  height: 24px;
+  margin-bottom: 18px;
+}
