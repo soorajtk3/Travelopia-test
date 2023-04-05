@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { addDetails } from "../api/user";
 import Swal from "sweetalert2";
@@ -10,33 +10,48 @@ function Form() {
   const [selectDest, setSelectDest] = useState("India");
   const [budget, setBudget] = useState("");
   const [travellers, setTravellers] = useState("");
+  const [submit, setSubmit] = useState(false);
+  const [status, setStatus] = useState("");
 
-  const dataInput = {
-    name: nameValue,
-    email: email,
-    budget: budget,
-    travellers: travellers,
-    destination: selectDest,
-  };
   const submitForm = (event) => {
+    var dataSubmit = true;
+    if (
+      (submit && !nameValue) ||
+      !email ||
+      !selectDest ||
+      !travellers ||
+      !budget
+    ) {
+      dataSubmit = false;
+    }
     event.preventDefault();
-    addDetails(
-      dataInput,
-      (resp) => {
-        if (resp.status === 200) {
-          Swal.fire("Booking successful").then((result) => {
-            if (result.isConfirmed) {
-              setNamevalue("");
-              setEmail("");
-              setSelectDest("");
-              setBudget("");
-              setTravellers("");
-            }
-          });
-        }
-      },
-      (err) => console.log({ err })
-    );
+
+    if (dataSubmit) {
+      addDetails(
+        {
+          name: nameValue,
+          email: email,
+          budget: budget,
+          travellers: travellers,
+          destination: selectDest,
+        },
+        (resp) => {
+          if (resp.status === 200) {
+            setStatus(resp.status);
+            Swal.fire("Booking successful").then((result) => {
+              if (result.isConfirmed) {
+                setNamevalue("");
+                setEmail("");
+                setSelectDest("");
+                setBudget("");
+                setTravellers("");
+              }
+            });
+          }
+        },
+        (err) => console.log({ err })
+      );
+    }
   };
   return (
     <div>
@@ -45,8 +60,8 @@ function Form() {
           <NavLink to="/list">View all users</NavLink>
         </button>
       </div>
-      <div>
-        <h3>Fill the form</h3>
+      <div style={{ paddingBottom: "8px" }}>
+        <h3></h3>
       </div>
       <div className="formStyle">
         <form onSubmit={submitForm}>
@@ -63,6 +78,13 @@ function Form() {
               onChange={(e) => setNamevalue(e.target.value)}
               autoComplete="off"
             />
+            <div className="validation">
+              {!nameValue && status !== 200 && submit && (
+                <>
+                  <h6>Name is required</h6>
+                </>
+              )}
+            </div>
           </div>
           <div>
             <label htmlFor="email" className="label">
@@ -71,12 +93,19 @@ function Form() {
 
             <input
               className="inputfield"
-              name="email"
+              name="Email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="off"
             />
+            <div className="validation">
+              {!email && status !== 200 && submit && (
+                <>
+                  <h6>Email is required</h6>
+                </>
+              )}
+            </div>
           </div>
           <div>
             <label className="label" htmlFor="destination">
@@ -87,11 +116,19 @@ function Form() {
               name="destination"
               id="destination"
               className="inputfield"
+              defaultValue={selectDest}
             >
               <option value="India">India</option>
               <option value="Africa">Africa</option>
               <option value="Europe">Europe</option>
             </select>
+            <div className="validation">
+              {!selectDest && status !== 200 && submit && (
+                <>
+                  <h6>Destination is required</h6>
+                </>
+              )}
+            </div>
           </div>
           <div>
             <label htmlFor="travellers" className="label">
@@ -107,6 +144,13 @@ function Form() {
               value={travellers}
               onChange={(e) => setTravellers(e.target.value)}
             />
+            <div className="validation">
+              {!travellers && status !== 200 && submit && (
+                <>
+                  <h6>Travellers number required</h6>
+                </>
+              )}
+            </div>
           </div>
           <div>
             <label htmlFor="budget" className="label">
@@ -122,12 +166,24 @@ function Form() {
               onChange={(e) => setBudget(e.target.value)}
               autoComplete="off"
             />
+            <div className="budgetVal">
+              {!budget && status !== 200 && submit && (
+                <>
+                  <h6>Budget is required</h6>
+                </>
+              )}
+            </div>
             <div className="prefix">$</div>
           </div>
-
-          <button className="button" type="submit">
-            Submit
-          </button>
+          <div>
+            <button
+              onClick={() => setSubmit(true)}
+              className="button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </div>
