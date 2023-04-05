@@ -1,5 +1,10 @@
+* {
+  top: 0;
+  margin: 0;
+}
 .App {
   text-align: center;
+  top: 0;
 }
 
 .App-logo {
@@ -36,53 +41,78 @@
     transform: rotate(360deg);
   }
 }
-.inputfield{
+.inputfield {
   width: 150px;
   height: 24px;
   margin-bottom: 18px;
- 
+  border-radius: 8px;
+  border: none;
 }
-.button{
+.button {
   width: 140px;
   height: 40px;
   border-radius: 8px;
   background-color: crimson;
   border: none;
   cursor: pointer;
-  margin-left: 5%;
-  margin-top: 20px;
-  position: fixed;
+  margin-top: 40px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
 }
-.label{
-  color: darksalmon;
-  font-size: 20px;
+.label {
+  color: #fff;
+  font-size: 16px;
 }
-table, th, td {
+table,
+th,
+td {
   border: 1px solid;
 }
 label {
   display: inline-block;
   width: 300px;
-  text-align: right;
+  text-align: start;
 }
-.listButton{
-  background:aquamarine;
+.listButton {
+  background: aquamarine;
   border: none;
   border-radius: 8px;
   width: 130px;
   height: 30px;
   margin-left: 80%;
   margin-top: 20px;
-
-}.formStyle{
-  margin-right:300px;
-}.prefix{
-  margin-top: -42px;
-  margin-left: 159px;
+  font-weight: 600;
 }
-.placeholder{
+.prefix {
+  margin-top: -42px;
+  margin-left: 160px;
+}
+.placeholder {
   padding-left: 13px;
   width: 137px;
   height: 24px;
   margin-bottom: 18px;
+}
+.validation {
+  color: red;
+  position: relative;
+  margin-left: 30%;
+  margin-bottom: 10px;
+}
+.budgetVal {
+  color: red;
+  position: relative;
+  margin-left: 30%;
+}
+
+.formStyle {
+  box-shadow: 1px 1px 10px 0px #3b4455;
+  border-radius: 8px;
+  padding: 20px;
+  width: 60%;
+  margin: 0 auto;
+  background: #20293c;
+}.tableBody{
+  font: #282c34;
 }

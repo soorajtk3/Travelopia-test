@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div
-      style={{ backgroundColor: "#E1F8DC", height: "100vh" }}
+      style={{ backgroundColor: "#5a6487", height: "100vh" }}
       className="App"
     >
       <Routes>
