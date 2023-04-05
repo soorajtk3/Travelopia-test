@@ -88,12 +88,12 @@ function Form() {
           </div>
           <div>
             <label htmlFor="email" className="label">
-              email :
+              Email :
             </label>
 
             <input
               className="inputfield"
-              name="Email"
+              name="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

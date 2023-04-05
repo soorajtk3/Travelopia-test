@@ -85,8 +85,9 @@ label {
   font-weight: 600;
 }
 .prefix {
-  margin-top: -42px;
+  margin-top: -44px;
   margin-left: 160px;
+  font-size: 14px;
 }
 .placeholder {
   padding-left: 13px;
