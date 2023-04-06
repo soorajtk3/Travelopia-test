@@ -56,3 +56,5 @@ postgresql://USER:PASSWORD@HOST:PORT/DATABASE?KEY1=VALUE&KEY2=VALUE&KEY3=VALUE
 ### 7. To run the test
 
 `npm test`
+### 8. Swagger file link
+      "http://localhost:3000/api-docs"
