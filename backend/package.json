@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon node ./bin/www",
-    "test": "jest"
+    "test": "jest --forceExit"
   },
   "dependencies": {
     "@prisma/client": "^4.12.0",

@@ -26,6 +26,9 @@ router.get("/", async function (req, res) {
 
 router.post("/", async function (req, res) {
   let { name, email, destination, travellers, budget } = req.body;
+  if (!name || !email || !destination || !travellers || !budget) {
+    return res.status(400).json({ error: "Missing request body fields" });
+  }
   let userDetails = await prisma.user.create({
     data: {
       name: name,
